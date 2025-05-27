@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Home Run Ice Cream - Step up to the counter for your favorite scoop of delicious, unique ice cream flavors.">
+  <title>Home Run Ice Cream</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="./js/scripts.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+   
+  </style>
+</head>
+<body class="text-gray-800">
+  <div class="min-h-screen flex flex-col items-center justify-start py-8">
+    <div class="w-full max-w-6xl px-4">
+      <!-- Parlor Header Sign -->
+      <header class="text-center py-6">
+        <h1 class="text-6xl font-extrabold text-pink-700 drop-shadow-md">Home Run Ice Cream</h1>
+        <p class="text-xl text-pink-600 mt-2">Ditch the Cracker Jack. Step up to the counter for your favorite scoop 🍦</p>
+      </header>
+
+      <!-- Ice Cream Parlor Counter Simulation -->
+      <section class="parlor-counter rounded-2xl shadow-xl p-8 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div>
+          <img src="./assets/Strawberry-Cheesecake-Ice-Cream-Recipe-9.jpg" alt="A HomeRun - Strawberry, vanilla, cheesecake swirl ice cream" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <img src="./assets/Strawberry-Cheesecake-Ice-Cream-Recipe-9.jpg" alt="A HomeRun" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <h2 class="mt-4 text-2xl font-bold text-pink-700">A HomeRun</h2>
+          <p class="text-sm text-gray-600">Strawberry, vanilla, cheesecake swirl</p>
+        </div>
+        <div>
+          <img src="./assets/chocolate-marshmallow-ice-cream_3629.jpg" alt="The Rockies - Marshmallow fluff, caramel, PB cups ice cream" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <img src="./assets/chocolate-marshmallow-ice-cream_3629.jpg" alt="The Rockies" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <h2 class="mt-4 text-2xl font-bold text-pink-700">The Rockies</h2>
+          <p class="text-sm text-gray-600">Marshmallow fluff, caramel, PB cups</p>
+        </div>
+        <div>
+          <img src="./assets/mint-ice-cream.jpg" alt="Everywhere A's - Mint chip with house-made Shamrock cream ice cream" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <img src="./assets/mint-ice-cream.jpg" alt="Everywhere A's" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <h2 class="mt-4 text-2xl font-bold text-pink-700">Everywhere A's</h2>
+          <p class="text-sm text-gray-600">Mint chip with house-made Shamrock cream</p>
+        </div>
+        <div>
+          <img src="./assets/christmas-icecream.png" alt="Steve Christmas - Eggnog, gingerbread cookie bites, peppermint candy pieces, and cold hot chocolate ice cream" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <img src="./assets/christmas-icecream.png" alt="Steve Christmas" class="mx-auto w-44 h-44 object-cover rounded-full shadow-lg">
+          <h2 class="mt-4 text-2xl font-bold text-pink-700">Steve Christmas</h2>
+          <p class="text-sm text-gray-600">Eggnog, gingerbread cookie bites, peppermint candy pieces, and cold hot chocolate</p>
+        </div>
+      </section>
+
+      <!-- Order Station -->
+      <section class="mt-16 text-center bg-white bg-opacity-90 p-8 rounded-2xl shadow-lg">
+        <h2 class="text-3xl font-bold text-pink-700 mb-4">Make Your Order</h2>
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <label class="block text-left">
+              <span class="text-pink-600 font-semibold">Flavor</span>
+              <select id="flavor" class="mt-1 block w-full border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400">
+                <option value="">Choose...</option>
+                <option value="homerun">A HomeRun</option>
+                <option value="rockies">The Rockies</option>
+                <option value="as">Everywhere A's</option>
+                <option value="christmas">Steve Christmas</option>
+              </select>
+            </label>
+            <label class="block text-left">
+              <span class="text-pink-600 font-semibold">Size</span>
+              <select id="size" class="mt-1 block w-full border-pink-300 rounded-lg focus:ring-2 focus:ring-pink-400">
+                <option value="">Select...</option>
+                <option value="shortstop">Shortstop ($2.50)</option>
+                <option value="basehit">Base Hit ($4.00+)</option>
+                <option value="doubleplay">Double Play ($5.50+)</option>
+              </select>
+            </label>
+          </div>
+          <div id="priceDisplay" class="text-lg font-semibold text-pink-600"></div>
+          <button type="submit" class="bg-pink-600 text-white px-6 py-3 rounded-lg hover:bg-pink-700 transition">Submit Order</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <!-- Character Counter -->
+ <div class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
+  <div id="dialogueBox" class="mb-4 text-lg font-mono text-gray-800 bg-yellow-100 p-4 rounded-xl">
+    👋 Welcome to Homerun Ice Cream!>
+
+  <div class="flex gap-4">
+    <button onclick="nextDialogue()" class="bg-blue-500 text-white px-4 py-2 rounded-xl hover:bg-blue-600">
+      🍦 I'd like to order ice cream
+    </button>
+    <button onclick="declineOrder()" class="bg-gray-300 px-4 py-2 rounded-xl hover:bg-gray-400">
+      ❌ Just looking
+    </button>
+  </div>
+
+  <div id="orderSection" class="mt-6 hidden">
+    <label for="flavor" class="block text-md font-semibold mb-2">Pick your flavor:</label>
+    <select id="flavor" class="w-full p-2 border rounded-lg mb-4">
+      <option value="basehit">$3.50 - Base Hit</option>
+      <option value="doubleplay">$4.50 - Double Play</option>
+      <option value="homerun">$5.00 - Home Run</option>
+    </select>
+
+    <button onclick="submitOrder()" class="bg-green-500 text-white px-4 py-2 rounded-xl hover:bg-green-600">
+      ✅ Confirm Order
+    </button>
+  </div>
+
+  <div id="npcResponse" class="mt-6 text-md font-medium text-green-700 hidden"></div>
+</div>
+
+</body>
+</html>
